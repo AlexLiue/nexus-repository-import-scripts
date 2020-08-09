@@ -28,7 +28,8 @@ do
 
     # if the target dir not exist continue
     if [ ! -d $artDir ] ;then continue; fi
-
+    if [ ! -f $artDir/*.jar ] ;then continue; fi
+    
     # copy pom.xm to *.pom
     jarFile=`find $artDir -maxdepth 1 -type f -not -name 'original-*.jar' -name '*.jar' | head -n 1`
     jarName=${jarFile##*/}
